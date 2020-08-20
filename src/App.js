@@ -1,13 +1,7 @@
 import React from 'react';
 import './App.scss';
-// import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Terminals from'./components/Terminals/Terminals';
-// import Music from './components/Music/Music';
-// import NewsContainer from './components/News/NewsContainer';
-// import Settings from './components/Settings/Settings';
-// import UsersContainer from './components/Users/UsersContainer';
-// import LoginPage from './components/Login/Login';
+import TerminalsContainer from'./components/Terminals/TerminalsContainer';
 import {Route, withRouter, Switch, Redirect} from 'react-router-dom';
 // import {initializeApp} from './redux/app-reducer';
 // import { getFrends } from './redux/users-reucer';
@@ -81,7 +75,7 @@ class App extends React.Component {
                 <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)} />*/}
                 {/*<Route path="/music" render={() => <Music />} />
                 <Route path="/news" render={() => <NewsContainer />} />*/}
-                <Route path="/terminals" render={() => <Terminals />} />
+                <Route path="/terminals" render={() => <TerminalsContainer />} />
                 {/*<Route path="/users" render={() => <UsersContainer />} />
                 <Route path="/login/facebook" render={() => <div>Facebook</div>} */}/>
                 {/*<Route path="/login" render={() => <LoginPage />} />*/}
