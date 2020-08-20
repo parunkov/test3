@@ -1,4 +1,4 @@
-import {addTerminal} from '../../redux/terminals-reducer';
+import {addTerminal, removeTerminal} from '../../redux/terminals-reducer';
 import Terminals from './Terminals';
 import {connect} from 'react-redux';
 import {reset} from 'redux-form';
@@ -10,4 +10,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {addTerminal, reset})(Terminals);
+export default connect(mapStateToProps, {addTerminal, removeTerminal, reset})(Terminals);

@@ -17,9 +17,10 @@ const TerminalsForm = ({handleSubmit, error}) => {
 	)
 }
 
-const Terminals = ({terminals, maxId, addTerminal, reset}) => {
+const Terminals = ({terminals, maxId, addTerminal, removeTerminal, reset}) => {
 
 	console.log(terminals);
+	console.log(removeTerminal);
 
 	const onSubmit = (formData) => {
 		console.log(formData);
@@ -28,9 +29,10 @@ const Terminals = ({terminals, maxId, addTerminal, reset}) => {
 		reset('terminals');
 	}
 
-	const TerminalsTableRow = ({id, name, description}) => {
+	const TerminalsTableRow = ({id, name, description, removeTerminal}) => {
 		const onButtonClick = () => {
 			console.log(id);
+			removeTerminal(id);
 		}
 		return (
 					<tr>
@@ -45,7 +47,7 @@ const Terminals = ({terminals, maxId, addTerminal, reset}) => {
 
 	const TerminalsTable = () => {
 		return (
-			terminals.map(item => <TerminalsTableRow key={item.id} id={item.id} name={item.name} description={item.description} />)
+			terminals.map(item => <TerminalsTableRow key={item.id} id={item.id} name={item.name} description={item.description} removeTerminal={removeTerminal} />)
 		)
 	}
 
