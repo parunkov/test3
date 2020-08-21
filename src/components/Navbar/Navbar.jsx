@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Navbar.module.scss';
+import './Navbar.scss';
 import {NavLink} from 'react-router-dom';
 // import SidebarContainer from './../Sidebar/SidebarContainer';
 // import LoginBlockContainer from '../common/LoginBlock/LoginBlockContainer';
@@ -8,30 +8,31 @@ import cn from 'classnames';
 const Navbar = (props) => {
 	// return props.menuShown;
 	return ( 
-			<div>
-				<div>
-					<nav className={styles.nav}>
-						<NavLink to="/terminals" activeClassName={styles.activeLink}>
-							<div className={cn(styles.item, styles.item_profile)}>
+			<div className="Navbar">
+				<div className="Navbar__content">
+					<nav className="">
+						<NavLink to="/terminals" className="Navbar__link" activeClassName="">
+							<div className="">
 								Терминалы
 							</div>
 						</NavLink>
-						<NavLink to="/buyers" activeClassName={styles.activeLink}>
-							<div className={cn(styles.item, styles.item_messages)}>
+						<NavLink to="/buyers" className="Navbar__link" activeClassName="">
+							<div className="">
 								Покупатели 
 							</div>
 						</NavLink>
-						<NavLink to="/buyers/id" activeClassName={styles.activeLink}>
+						{/*<NavLink to="/buyers/id" activeClassName={styles.activeLink}>
 							<div className={cn(styles.item, styles.item_news)}>
 								Покупатель
 							</div>
-						</NavLink>
+						</NavLink>*/}
 					</nav>
 					{/*<SidebarContainer />*/}
-					<div className={styles.login}>
+					<div className="">
 						{/*<LoginBlockContainer />*/}
 					</div>
 				</div>
+				<div className="Navbar__footer">Copyright © 2020</div>
 			</div>
 		);
 }
