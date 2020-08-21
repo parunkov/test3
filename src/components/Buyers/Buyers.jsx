@@ -3,14 +3,19 @@ import {reduxForm, Field} from 'redux-form';
 import {Input} from '../common/FormsControl';
 import './Buyers.scss';
 
-const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByCheck,sortedByAmount, sortedByProceeds, sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter, setCurrentBuyerId}) => {
+const Buyers = ({filteredBuyers, sortedBuyers, filtered, reversed, sortedById, sortedByCheck,sortedByAmount, sortedByProceeds, sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter, setCurrentBuyerId, reverseBuyers}) => {
 
 	const [showedBuyersValue, setShowedBuyersValue] = useState(15);
 	const [page, setPage] = useState(1);
 
-	const showedBuyers = showedBuyersValue === 5 ?
+	let showedBuyers = showedBuyersValue === 5 ?
 		filteredBuyers.slice((page - 1) * showedBuyersValue, page * showedBuyersValue) :
 		filteredBuyers.slice(0, showedBuyersValue);
+	if (reversed) {
+		showedBuyers = showedBuyersValue === 5 ?
+		filteredBuyers.reverse().slice((page - 1) * showedBuyersValue, page * showedBuyersValue) :
+		filteredBuyers.reverse().slice(0, showedBuyersValue);
+	}
 
 	const BuyersForm = ({handleSubmit, error}) => {
 		return (
@@ -44,9 +49,11 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByChe
 	}
 
 	const Button = ({sort, sorted}) => {
-		return(
-			<button type="button" onClick={sort}  disabled={sorted}>По возрастанию</button>
-		)
+		if (sorted && !reversed) {
+			return <button type="button" onClick={() => reverseBuyers(true)}>По убыванию</button>
+		} else {
+			return <button type="button" onClick={sort}>По возрастанию</button>
+		}
 	}
 
 	const BuyersTable = ({filteredBuyers}) => {

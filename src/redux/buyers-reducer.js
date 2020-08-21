@@ -4,6 +4,7 @@ const SORTED_BY_AMOUNT = 'buyers/SORTED_BY_AMOUNT';
 const SORTED_BY_PROCEEDS = 'buyers/SORTED_BY_PROCEEDS';
 const FILTER = 'buyers/FILTER';
 const FILTER_CLEARED = 'buyers/FILTER_CLEARED';
+const REVERSE = 'buyers/REVERSE';
 
 const initialBuyers = [
 	{id: 1, name: 'Иван', check: 500, amount: 10, proceeds: 5000},
@@ -44,7 +45,8 @@ const buyersReducer = (state = initialState, action) => {
 				sortedByCheck: true,
 				sortedById: false,
 				sortedByAmount: false,
-				sortedByProceeds: false
+				sortedByProceeds: false,
+				reversed: false
 			}
 		}
 		case SORTED_BY_ID: {
@@ -55,7 +57,8 @@ const buyersReducer = (state = initialState, action) => {
 				sortedByCheck: false,
 				sortedById: true,
 				sortedByAmount: false,
-				sortedByProceeds: false
+				sortedByProceeds: false,
+				reversed: false
 			}
 		}
 		case SORTED_BY_AMOUNT: {
@@ -66,7 +69,8 @@ const buyersReducer = (state = initialState, action) => {
 				sortedByCheck: false,
 				sortedById: false,
 				sortedByAmount: true,
-				sortedByProceeds: false
+				sortedByProceeds: false,
+				reversed: false
 			}
 		}
 		case SORTED_BY_PROCEEDS: {
@@ -77,7 +81,8 @@ const buyersReducer = (state = initialState, action) => {
 				sortedByCheck: false,
 				sortedById: false,
 				sortedByAmount: false,
-				sortedByProceeds: true
+				sortedByProceeds: true,
+				reversed: false
 			}
 		}
 		case FILTER: {
@@ -94,6 +99,12 @@ const buyersReducer = (state = initialState, action) => {
 				filtered: false
 			}
 		}
+		case REVERSE: {
+			return {
+				...state,
+				reversed: action.reversed
+			}
+		}
 		default:
 			return state;
 	}
@@ -108,5 +119,9 @@ export const filter = (name) => ({
 	name
 });
 export const clearFilter = () => ({type: FILTER_CLEARED});
+export const reverseBuyers = (reversed) => ({
+	type: REVERSE,
+	reversed
+});
 
 export default buyersReducer;

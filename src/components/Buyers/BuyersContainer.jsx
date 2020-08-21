@@ -1,7 +1,7 @@
 import Buyers from './Buyers';
 import {connect} from 'react-redux';
 // import {reset} from 'redux-form';
-import {sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter} from '../../redux/buyers-reducer';
+import {sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter, reverseBuyers} from '../../redux/buyers-reducer';
 import {setCurrentBuyerId} from '../../redux/buyer-reducer';
 import {compose} from 'redux';
 import {withAuthRedirect} from '../../hoc/withAuthRedirect';
@@ -14,11 +14,12 @@ const mapStateToProps = (state) => {
 		sortedById: state.buyers.sortedById,
 		sortedByCheck: state.buyers.sortedByCheck,
 		sortedByAmount: state.buyers.sortedByAmount,
-		sortedByProceeds: state.buyers.sortedByProceeds
+		sortedByProceeds: state.buyers.sortedByProceeds,
+		reversed: state.buyers.reversed
 	}
 }
 
 export default compose(
-	connect(mapStateToProps, {sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter, setCurrentBuyerId}),
+	connect(mapStateToProps, {sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter, setCurrentBuyerId, reverseBuyers}),
 	withAuthRedirect
 )(Buyers);
