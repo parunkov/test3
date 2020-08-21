@@ -78,7 +78,7 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, reversed, sortedById, s
 							<td>
 								<Button sort={sortById} sorted={sortedById} />
 							</td>
-							<td>
+							<td className="Buyers__filter">
 								{filtered ? <button type="button" onClick={clearFilter}>Сбросить фильтр</button> : <BuyersReduxForm onSubmit={onSubmit} />}
 							</td>
 							<td>
