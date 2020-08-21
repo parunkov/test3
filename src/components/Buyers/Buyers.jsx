@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {reduxForm, Field} from 'redux-form';
-import {required} from '../../utils/validators';
 import {Input} from '../common/FormsControl';
 import './Buyers.scss';
 

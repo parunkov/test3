@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 // import {reset} from 'redux-form';
 import {sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter} from '../../redux/buyers-reducer';
 import {setCurrentBuyerId} from '../../redux/buyer-reducer';
+import {compose} from 'redux';
+import {withAuthRedirect} from '../../hoc/withAuthRedirect';
 
 const mapStateToProps = (state) => {
 	return {
@@ -16,4 +18,7 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter, setCurrentBuyerId})(Buyers);
+export default compose(
+	connect(mapStateToProps, {sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter, setCurrentBuyerId}),
+	withAuthRedirect
+)(Buyers);
