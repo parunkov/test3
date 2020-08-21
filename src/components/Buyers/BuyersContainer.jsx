@@ -2,6 +2,7 @@ import Buyers from './Buyers';
 import {connect} from 'react-redux';
 // import {reset} from 'redux-form';
 import {sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter} from '../../redux/buyers-reducer';
+import {setCurrentBuyerId} from '../../redux/buyer-reducer';
 
 const mapStateToProps = (state) => {
 	return {
@@ -15,4 +16,4 @@ const mapStateToProps = (state) => {
 	}
 }
 
-export default connect(mapStateToProps, {sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter})(Buyers);
+export default connect(mapStateToProps, {sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter, setCurrentBuyerId})(Buyers);

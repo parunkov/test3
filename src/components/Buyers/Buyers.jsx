@@ -4,7 +4,7 @@ import {required} from '../../utils/validators';
 import {Input} from '../common/FormsControl';
 import './Buyers.scss';
 
-const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByCheck,sortedByAmount, sortedByProceeds, sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter}) => {
+const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByCheck,sortedByAmount, sortedByProceeds, sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter, setCurrentBuyerId}) => {
 
 	const [showedBuyersValue, setShowedBuyersValue] = useState(15);
 	const [page, setPage] = useState(1);
@@ -35,7 +35,7 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByChe
 	const BuyersTableRow = ({id, name, check, amount, proceeds}) => {
 		return(
 			<tr>
-				<td>{id}</td>
+				<td><a href="/#/buyers/id" onClick={() => setCurrentBuyerId(id)}>{id}</a></td>
 				<td>{name}</td>
 				<td>{check}</td>
 				<td>{amount}</td>
