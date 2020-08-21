@@ -7,6 +7,11 @@ import './Buyers.scss';
 const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByCheck,sortedByAmount, sortedByProceeds, sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter}) => {
 
 	const [showedBuyersValue, setShowedBuyersValue] = useState(15);
+	const [page, setPage] = useState(1);
+
+	const showedBuyers = showedBuyersValue === 5 ?
+		filteredBuyers.slice((page - 1) * showedBuyersValue, page * showedBuyersValue) :
+		filteredBuyers.slice(0, showedBuyersValue);
 
 	const BuyersForm = ({handleSubmit, error}) => {
 		return (
@@ -41,7 +46,7 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByChe
 
 	const BuyersTable = ({filteredBuyers}) => {
 		return (
-			filteredBuyers.map(item => <BuyersTableRow key={item.id} id={item.id} name={item.name} check={item.check} amount={item.amount} proceeds={item.proceeds} />)
+			showedBuyers.map(item => <BuyersTableRow key={item.id} id={item.id} name={item.name} check={item.check} amount={item.amount} proceeds={item.proceeds} />)
 		)
 	}
 
@@ -75,15 +80,21 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByChe
 							</td>
 						</tr>
 						<BuyersTable filteredBuyers={filteredBuyers} />
-						<div className="">
-							<span>Показывать</span> 
-							<button onClick={() => setShowedBuyersValue(5)} disabled={showedBuyersValue === 5}>5</button>
-							<button onClick={() => setShowedBuyersValue(10)} disabled={showedBuyersValue === 10}>10</button>
-							<button onClick={() => setShowedBuyersValue(15)} disabled={showedBuyersValue === 15}>15</button>
-							<span>покупателей</span>
-						</div>
 					</tbody>
 				</table>
+				{showedBuyersValue === 5 && <div className="">
+					<span>Страница </span>
+					<span className={"Buyers__paginationItem" + (page === 1 ? " Buyers__paginationItem_active" : "")} onClick={() => setPage(1)}>1 </span>
+					<span className={"Buyers__paginationItem" + (page === 2 ? " Buyers__paginationItem_active" : "")} onClick={() => setPage(2)}>2 </span>
+					<span className={"Buyers__paginationItem" + (page === 3 ? " Buyers__paginationItem_active" : "")} onClick={() => setPage(3)}>3 </span>
+				</div>}
+				<div className="">
+					<span>Показывать </span> 
+					<button onClick={() => setShowedBuyersValue(5)} disabled={showedBuyersValue === 5}>5</button>
+					<button onClick={() => setShowedBuyersValue(10)} disabled={showedBuyersValue === 10}>10</button>
+					<button onClick={() => setShowedBuyersValue(15)} disabled={showedBuyersValue === 15}>15</button>
+					<span> покупателей</span>
+				</div>
 		</div>
 	)
 }

@@ -5,4 +5,11 @@
 			border: 1px solid black;
 		}
 	}
+	&__paginationItem {
+		cursor: pointer;
+		&_active {
+			cursor: default;
+			font-weight: bold;
+		}
+	}
 }
