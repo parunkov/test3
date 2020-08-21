@@ -7,7 +7,7 @@ import './Terminals.scss';
 const TerminalsForm = ({handleSubmit, error}) => {
 	return (
 		<form onSubmit={handleSubmit} className="">
-			<h1>Терминалы</h1>
+			<h2>Добавить терминал</h2>
 			<Field component={Input} name={"name"} validate={[required]} title="Название терминала" />
 			<Field component={Textarea} name={"description"} title="Описание"/>
 			<div className="">
@@ -19,11 +19,7 @@ const TerminalsForm = ({handleSubmit, error}) => {
 
 const Terminals = ({terminals, maxId, addTerminal, removeTerminal, reset}) => {
 
-	console.log(terminals);
-	console.log(removeTerminal);
-
 	const onSubmit = (formData) => {
-		console.log(formData);
 		const id = maxId + 1;
 		addTerminal(id, formData.name, formData.description, id);
 		reset('terminals');
@@ -31,7 +27,6 @@ const Terminals = ({terminals, maxId, addTerminal, removeTerminal, reset}) => {
 
 	const TerminalsTableRow = ({id, name, description, removeTerminal}) => {
 		const onButtonClick = () => {
-			console.log(id);
 			removeTerminal(id);
 		}
 		return (
@@ -55,13 +50,16 @@ const Terminals = ({terminals, maxId, addTerminal, removeTerminal, reset}) => {
 		<div className="">
 			<TerminalsReduxForm onSubmit={onSubmit} />
 			<div className="">
+				<h1>Терминалы</h1>
 				<table className="Terminals__table">
-					<tr>
-						<th>Название</th>
-						<th>Описание</th>
-						<th></th>
-					</tr>
-					<TerminalsTable />
+					<tbody>
+						<tr>
+							<th>Название</th>
+							<th>Описание</th>
+							<th></th>
+						</tr>
+						<TerminalsTable />
+					</tbody>
 				</table>
 			</div>
 		</div>

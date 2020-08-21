@@ -2,7 +2,9 @@ import React from 'react';
 import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 import TerminalsContainer from'./components/Terminals/TerminalsContainer';
-import {Route, withRouter, Switch, Redirect} from 'react-router-dom';
+import BuyersContainer from './components/Buyers/BuyersContainer';
+// import {Route, withRouter, Switch, Redirect} from 'react-router-dom';
+import {Route, withRouter, Switch} from 'react-router-dom';
 // import {initializeApp} from './redux/app-reducer';
 // import { getFrends } from './redux/users-reucer';
 import {connect} from 'react-redux';
@@ -76,6 +78,7 @@ class App extends React.Component {
                 {/*<Route path="/music" render={() => <Music />} />
                 <Route path="/news" render={() => <NewsContainer />} />*/}
                 <Route path="/terminals" render={() => <TerminalsContainer />} />
+                <Route path="/buyers" render={() => <BuyersContainer />} />
                 {/*<Route path="/users" render={() => <UsersContainer />} />
                 <Route path="/login/facebook" render={() => <div>Facebook</div>} */}/>
                 {/*<Route path="/login" render={() => <LoginPage />} />*/}
