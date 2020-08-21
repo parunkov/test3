@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import Navbar from './components/Navbar/Navbar';
+import NavbarContaiter from './components/Navbar/NavbarContaiter';
 import TerminalsContainer from'./components/Terminals/TerminalsContainer';
 import BuyersContainer from './components/Buyers/BuyersContainer';
 import BuyerContainer from './components/Buyer/BuyerContainer';
@@ -71,7 +71,7 @@ class App extends React.Component {
         <div className="app">
           {/*<Header menuShown={this.state.menuShown} toggleMenu={this.toggleMenu} />*/}
           <div className="app-wrapper">
-            <Navbar />
+            <NavbarContaiter />
             <div className="app-wrapper-content">
               <Switch>
                 {/*<Route exact path="/" render={() => <Redirect to="/profile" />} />

@@ -1,10 +1,9 @@
 const GET_USER = 'login/GET_USER';
+const LOGOUT = 'login/LOGOUT';
 
 const initialState = {
 	login: null,
-	password: null,
 	isLogined: false,
-	loginError: null,
 	avatarUrl: null
 }
 
@@ -18,6 +17,11 @@ const loginReducer = (state = initialState, action) => {
 				isLogined: action.isLogined
 			}
 		}
+		case LOGOUT: {
+			return {
+				...initialState
+			}
+		}
 		default:
 			return state;
 	}
@@ -29,6 +33,7 @@ const getUser = (user, avatarUrl, isLogined) => ({
 	avatarUrl,
 	isLogined
 });
+export const logout = () => ({type: LOGOUT});
 
 export const checkLogin = (user) => async (dispatch) => {
 	const result = await fetch(`https://api.github.com/users/${user}`).then(

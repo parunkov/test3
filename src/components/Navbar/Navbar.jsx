@@ -2,9 +2,13 @@ import React from 'react';
 import './Navbar.scss';
 import {NavLink} from 'react-router-dom';
 
-const Navbar = (props) => {
+const Navbar = ({isLogined, avatarUrl, logout}) => {
 	return ( 
 			<div className="Navbar">
+				{isLogined && <div className="Navbar__header">
+					<img className="Navbar__avatar" src={avatarUrl} alt="avatar"/>
+					<button onClick={() => logout()}>Выйти</button>
+				</div>}
 				<div className="Navbar__content">
 					<nav className="">
 						<NavLink to="/terminals" className="Navbar__link" activeClassName="">

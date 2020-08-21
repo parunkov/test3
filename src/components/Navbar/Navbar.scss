@@ -4,6 +4,13 @@
 	display: flex; 
 	flex-direction: column;
 	justify-content: space-between; 
+	&__header {
+		flex: 0 0 auto;
+	}
+	&__avatar {
+		width: 156px;
+		border: 2px solid white;
+	}
 	&__content {
 		flex: 0 0 auto;
 	}
