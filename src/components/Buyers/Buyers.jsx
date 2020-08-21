@@ -74,7 +74,7 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, reversed, sortedById, s
 							<th>Количество покупок</th>
 							<th>Общая выручка</th>
 						</tr>
-						<tr>
+						<tr className="Buyers__buttons">
 							<td>
 								<Button sort={sortById} sorted={sortedById} />
 							</td>

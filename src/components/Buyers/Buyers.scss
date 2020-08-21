@@ -2,7 +2,7 @@
 	&__table {
 		border-collapse: collapse;
 		th, td {
-			border: 1px solid black;
+			border: 1px solid #1467C1;
 		}
 	}
 	&__paginationItem {
@@ -14,5 +14,8 @@
 	}
 	&__filter input {
 		width: 80px;
+	}
+	&__buttons td {
+		text-align: center;
 	}
 }
