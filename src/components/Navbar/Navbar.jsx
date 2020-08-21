@@ -3,7 +3,7 @@ import './Navbar.scss';
 import {NavLink} from 'react-router-dom';
 // import SidebarContainer from './../Sidebar/SidebarContainer';
 // import LoginBlockContainer from '../common/LoginBlock/LoginBlockContainer';
-import cn from 'classnames';
+// import cn from 'classnames';
 
 const Navbar = (props) => {
 	// return props.menuShown;

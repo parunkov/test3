@@ -16,7 +16,7 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByChe
 	const BuyersForm = ({handleSubmit, error}) => {
 		return (
 			<form onSubmit={handleSubmit} className="">
-				<Field component={Input} name={"name"} validate={[required]} />
+				<Field component={Input} name={"name"} />
 				<div className="">
 					<button type={"submit"}>Найти</button>
 				</div>
