@@ -31,6 +31,7 @@ const initialState = {
 	sortedByCheck: false,
 	sortedByAmount: false,
 	sortedByProceeds: false,
+	reverse: false
 }
 
 const buyersReducer = (state = initialState, action) => {

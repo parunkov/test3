@@ -43,6 +43,12 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByChe
 		)
 	}
 
+	const Button = ({sort, sorted}) => {
+		return(
+			<button type="button" onClick={sort}  disabled={sorted}>По возрастанию</button>
+		)
+	}
+
 	const BuyersTable = ({filteredBuyers}) => {
 		return (
 			showedBuyers.map(item => <BuyersTableRow key={item.id} id={item.id} name={item.name} check={item.check} amount={item.amount} proceeds={item.proceeds} />)
@@ -63,19 +69,19 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByChe
 						</tr>
 						<tr>
 							<td>
-								<button type="button" onClick={sortById} disabled={sortedById}>По возрастанию</button>
+								<Button sort={sortById} sorted={sortedById} />
 							</td>
 							<td>
 								{filtered ? <button type="button" onClick={clearFilter}>Сбросить фильтр</button> : <BuyersReduxForm onSubmit={onSubmit} />}
 							</td>
 							<td>
-								<button type="button" onClick={sortByCheck}  disabled={sortedByCheck}>По возрастанию</button>
+								<Button sort={sortByCheck} sorted={sortedByCheck} />
 							</td>
 							<td>
-								<button type="button" onClick={sortByAmount} disabled={sortedByAmount}>По возрастанию</button>
+								<Button sort={sortByAmount} sorted={sortedByAmount} />
 							</td>
 							<td>
-								<button type="button" onClick={sortByProceeds} disabled={sortedByProceeds}>По возрастанию</button>
+								<Button sort={sortByProceeds} sorted={sortedByProceeds} />
 							</td>
 						</tr>
 						<BuyersTable filteredBuyers={filteredBuyers} />
