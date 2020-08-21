@@ -4,7 +4,7 @@ import Navbar from './components/Navbar/Navbar';
 import TerminalsContainer from'./components/Terminals/TerminalsContainer';
 import BuyersContainer from './components/Buyers/BuyersContainer';
 import BuyerContainer from './components/Buyer/BuyerContainer';
-import Login from './components/Login/Login';
+import LoginContainer from './components/Login/LoginContainer';
 // import {Route, withRouter, Switch, Redirect} from 'react-router-dom';
 import {Route, withRouter, Switch} from 'react-router-dom';
 // import {initializeApp} from './redux/app-reducer';
@@ -80,7 +80,7 @@ class App extends React.Component {
                 <Route path="/terminals" render={() => <TerminalsContainer />} />
                 <Route exact path="/buyers" render={() => <BuyersContainer />} />
                 <Route exact path="/buyers/id" render={() => <BuyerContainer />} />
-                <Route path="/login" render={() => <Login />} />
+                <Route path="/login" render={() => <LoginContainer />} />
                 <Route path="*" render={() => <div>404 NOT FOUND</div>} />
               </Switch>
             </div>

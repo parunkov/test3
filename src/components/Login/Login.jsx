@@ -20,9 +20,10 @@ const LoginReduxForm = reduxForm ({
 	form: 'login'
 })(LoginForm);
 
-const Login = () => {
+const Login = ({checkLogin}) => {
 	const onSubmit = (formData) => {
 		console.log(formData);
+		checkLogin(formData.login);
 	}
 	return (
 		<LoginReduxForm onSubmit={onSubmit} />
