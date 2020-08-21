@@ -14,3 +14,7 @@ export const digit = value => {
 	if (value.match(/\d/)) return undefined;
 	return 'Должна быть хотя бы одна цифра';
 }
+export const length = value => {
+	if (value.length > 7) return undefined;
+	return 'Не менее восьми символов';
+}
