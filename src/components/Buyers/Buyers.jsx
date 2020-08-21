@@ -1,10 +1,30 @@
 import React from 'react';
-// import {reduxForm, Field} from 'redux-form';
-// import {required} from '../../utils/validators';
-// import {Input} from '../common/FormsControl';
+import {reduxForm, Field} from 'redux-form';
+import {required} from '../../utils/validators';
+import {Input} from '../common/FormsControl';
 import './Buyers.scss';
 
-const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByCheck,sortedByAmount, sortedByProceeds, sortByCheck, sortById, sortByAmount, sortByProceeds}) => {
+const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByCheck,sortedByAmount, sortedByProceeds, sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter}) => {
+
+	const BuyersForm = ({handleSubmit, error}) => {
+		return (
+			<form onSubmit={handleSubmit} className="">
+				<Field component={Input} name={"name"} validate={[required]} />
+				<div className="">
+					<button type={"submit"}>Найти</button>
+				</div>
+			</form>
+		)
+	}
+
+	const BuyersReduxForm = reduxForm ({
+		form: 'buyers'
+	})(BuyersForm);
+
+	const onSubmit = (formData) => {
+		console.log(formData);
+		filter(formData.name);
+	}
 
 	const BuyersTableRow = ({id, name, check, amount, proceeds}) => {
 		return(
@@ -40,7 +60,9 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, sortedById, sortedByChe
 							<td>
 								<button type="button" onClick={sortById} disabled={sortedById}>По возрастанию</button>
 							</td>
-							<td></td>
+							<td>
+								{filtered ? <button type="button" onClick={clearFilter}>Сбросить фильтр</button> : <BuyersReduxForm onSubmit={onSubmit} />}
+							</td>
 							<td>
 								<button type="button" onClick={sortByCheck}  disabled={sortedByCheck}>По возрастанию</button>
 							</td>

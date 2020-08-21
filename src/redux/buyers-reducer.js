@@ -2,6 +2,8 @@ const SORTED_BY_CHECK = 'buyers/SORTED_BY_CHECK';
 const SORTED_BY_ID = 'buyers/SORTED_BY_ID';
 const SORTED_BY_AMOUNT = 'buyers/SORTED_BY_AMOUNT';
 const SORTED_BY_PROCEEDS = 'buyers/SORTED_BY_PROCEEDS';
+const FILTER = 'buyers/FILTER';
+const FILTER_CLEARED = 'buyers/FILTER_CLEARED';
 
 const initialBuyers = [
 	{id: 1, name: 'Иван', check: 500, amount: 10, proceeds: 5000},
@@ -77,6 +79,20 @@ const buyersReducer = (state = initialState, action) => {
 				sortedByProceeds: true
 			}
 		}
+		case FILTER: {
+			return {
+				...state,
+				filteredBuyers: state.sortedBuyers.filter(item => item.name === action.name),
+				filtered: true
+			}
+		}
+		case FILTER_CLEARED: {
+			return {
+				...state,
+				filteredBuyers: state.sortedBuyers,
+				filtered: false
+			}
+		}
 		default:
 			return state;
 	}
@@ -86,5 +102,10 @@ export const sortByCheck = () => ({	type: SORTED_BY_CHECK});
 export const sortById = () => ({type: SORTED_BY_ID});
 export const sortByAmount = () => ({type: SORTED_BY_AMOUNT});
 export const sortByProceeds = () => ({type: SORTED_BY_PROCEEDS});
+export const filter = (name) => ({
+	type: FILTER,
+	name
+});
+export const clearFilter = () => ({type: FILTER_CLEARED});
 
 export default buyersReducer;

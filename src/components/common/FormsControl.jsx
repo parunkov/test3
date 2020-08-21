@@ -14,7 +14,7 @@ export const Input = (props) => {
 	const {input, meta, ...restProps} = props;
 	return (
 		<FormsControl {...props}>
-			<div className="">{props.title}</div>
+			{props.title && <div className="">{props.title}</div>}
 			<input {...input} {...restProps} />
 		</FormsControl>
 	)
