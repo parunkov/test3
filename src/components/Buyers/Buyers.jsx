@@ -8,13 +8,17 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, reversed, sortedById, s
 	const [showedBuyersValue, setShowedBuyersValue] = useState(15);
 	const [page, setPage] = useState(1);
 
-	let showedBuyers = showedBuyersValue === 5 ?
-		filteredBuyers.slice((page - 1) * showedBuyersValue, page * showedBuyersValue) :
-		filteredBuyers.slice(0, showedBuyersValue);
+	const setShowedBuyers = (filteredBuyers) => {
+		return(
+			showedBuyersValue === 5 ?
+			filteredBuyers.slice((page - 1) * showedBuyersValue, page * showedBuyersValue) :
+			filteredBuyers.slice(0, showedBuyersValue)
+		)
+	}
+
+	let showedBuyers = setShowedBuyers(filteredBuyers);
 	if (reversed) {
-		showedBuyers = showedBuyersValue === 5 ?
-		filteredBuyers.reverse().slice((page - 1) * showedBuyersValue, page * showedBuyersValue) :
-		filteredBuyers.reverse().slice(0, showedBuyersValue);
+		showedBuyers = setShowedBuyers(filteredBuyers.reverse());
 	}
 
 	const BuyersForm = ({handleSubmit, error}) => {
