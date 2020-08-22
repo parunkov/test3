@@ -15,7 +15,7 @@ export const Input = (props) => {
 	const {input, meta, ...restProps} = props;
 	return (
 		<FormsControl {...props}>
-			{props.title && <div className="">{props.title}</div>}
+			{props.title && <div>{props.title}</div>}
 			<input {...input} {...restProps} />
 		</FormsControl>
 	)
@@ -25,7 +25,7 @@ export const Textarea = (props) => {
 	const {input, meta, ...restProps} = props;
 	return (
 		<FormsControl {...props}>
-			<div className="">{props.title}</div>
+			<div>{props.title}</div>
 			<textarea {...input} {...restProps} />
 		</FormsControl>
 	)

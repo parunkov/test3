@@ -10,14 +10,14 @@ const Navbar = ({isLogined, avatarUrl, logout}) => {
 					<button onClick={() => logout()}>Выйти</button>
 				</div>}
 				<div className="Navbar__content">
-					<nav className="">
+					<nav>
 						<NavLink to="/terminals" className="Navbar__link" activeClassName="Navbar__link_active">
-							<div className="">
+							<div>
 								Терминалы
 							</div>
 						</NavLink>
 						<NavLink to="/buyers" className="Navbar__link" activeClassName="Navbar__link_active">
-							<div className="">
+							<div>
 								Покупатели 
 							</div>
 						</NavLink>

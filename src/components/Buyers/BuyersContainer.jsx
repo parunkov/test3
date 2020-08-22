@@ -1,6 +1,5 @@
 import Buyers from './Buyers';
 import {connect} from 'react-redux';
-// import {reset} from 'redux-form';
 import {sortByCheck, sortById, sortByAmount, sortByProceeds, filter, clearFilter, reverseBuyers} from '../../redux/buyers-reducer';
 import {setCurrentBuyerId} from '../../redux/buyer-reducer';
 import {compose} from 'redux';

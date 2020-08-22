@@ -6,11 +6,11 @@ import './Terminals.scss';
 
 const TerminalsForm = ({handleSubmit, error}) => {
 	return (
-		<form onSubmit={handleSubmit} className="">
+		<form onSubmit={handleSubmit}>
 			<h2>Добавить терминал</h2>
 			<Field component={Input} name={"name"} validate={[required]} title="Название терминала" />
 			<Field component={Textarea} name={"description"} title="Описание"/>
-			<div className="">
+			<div>
 				<button type={"submit"}>Добавить</button>
 			</div>
 		</form>
@@ -49,7 +49,7 @@ const Terminals = ({terminals, maxId, addTerminal, removeTerminal, reset}) => {
 	return (
 		<div className="Terminals">
 			<TerminalsReduxForm onSubmit={onSubmit} />
-			<div className="">
+			<div>
 				<h1>Терминалы</h1>
 				<table className="Terminals__table">
 					<tbody>

@@ -65,7 +65,7 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, reversed, sortedById, s
 	}
 
 	return (
-		<div className="">
+		<div>
 			<h1>Покупатели</h1>
 				<table className="Buyers__table">
 					<tbody>
