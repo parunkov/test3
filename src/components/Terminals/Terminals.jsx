@@ -47,7 +47,7 @@ const Terminals = ({terminals, maxId, addTerminal, removeTerminal, reset}) => {
 	}
 
 	return (
-		<div className="">
+		<div className="Terminals">
 			<TerminalsReduxForm onSubmit={onSubmit} />
 			<div className="">
 				<h1>Терминалы</h1>

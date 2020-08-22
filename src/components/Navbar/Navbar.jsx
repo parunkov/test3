@@ -11,12 +11,12 @@ const Navbar = ({isLogined, avatarUrl, logout}) => {
 				</div>}
 				<div className="Navbar__content">
 					<nav className="">
-						<NavLink to="/terminals" className="Navbar__link" activeClassName="">
+						<NavLink to="/terminals" className="Navbar__link" activeClassName="Navbar__link_active">
 							<div className="">
 								Терминалы
 							</div>
 						</NavLink>
-						<NavLink to="/buyers" className="Navbar__link" activeClassName="">
+						<NavLink to="/buyers" className="Navbar__link" activeClassName="Navbar__link_active">
 							<div className="">
 								Покупатели 
 							</div>

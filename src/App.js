@@ -5,8 +5,7 @@ import TerminalsContainer from'./components/Terminals/TerminalsContainer';
 import BuyersContainer from './components/Buyers/BuyersContainer';
 import BuyerContainer from './components/Buyer/BuyerContainer';
 import LoginContainer from './components/Login/LoginContainer';
-// import {Route, withRouter, Switch, Redirect} from 'react-router-dom';
-import {Route, withRouter, Switch} from 'react-router-dom';
+import {Route, withRouter, Switch, Redirect} from 'react-router-dom';
 // import {initializeApp} from './redux/app-reducer';
 // import { getFrends } from './redux/users-reucer';
 import {connect} from 'react-redux';
@@ -74,9 +73,7 @@ class App extends React.Component {
             <NavbarContaiter />
             <div className="app-wrapper-content">
               <Switch>
-                {/*<Route exact path="/" render={() => <Redirect to="/profile" />} />
-                <Route path="/dialogs" render={withSuspense(DialogsContainer)} />
-                <Route path="/profile/:userId?" render={withSuspense(ProfileContainer)} />*/}
+                <Route exact path="/" render={() => <Redirect to="/terminals" />} />
                 <Route path="/terminals" render={() => <TerminalsContainer />} />
                 <Route exact path="/buyers" render={() => <BuyersContainer />} />
                 <Route exact path="/buyers/id" render={() => <BuyerContainer />} />

@@ -1,8 +1,20 @@
 .Terminals {
+	margin-bottom: 20px;
+	form {
+		margin-bottom: 20px;
+	}
+	input, textarea {
+		margin-bottom: 10px;
+		min-width: 280px;
+	}
 	&__table {
 		border-collapse: collapse;
 		th, td {
-			border: 1px solid #1467C1;
+			border: 1px solid #114e40;
+			min-width: 85px;
+			&:last-child {
+				text-align: center;
+			}
 		}
 	}
 }

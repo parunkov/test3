@@ -15,10 +15,23 @@ body {
 }
 h1, h2 {
   margin-top: 0;
-  color: #1467C1;
+  color: #114e40;
 }
 th {
-  color: #1467C1;
+  color: #114e40;
+}
+th, td {
+  padding: 5px;
+}
+button {
+  background: #114e40;
+  color: white;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+button[disabled] {
+  opacity: 0.5;
 }
 
 code {
