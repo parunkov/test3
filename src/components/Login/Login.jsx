@@ -10,7 +10,8 @@ const LoginForm = ({handleSubmit, error}) => {
 		<form onSubmit={handleSubmit} className="Login">
 			<h1>Вход</h1>
 			<Field component={Input} name={"login"} validate={[required]} title="Логин" />
-			<Field component={Input} name={"password"} type={"password"} title="Пароль" />
+            <Field component={Input} name={"password"} validate={[required, lowercaseLetter, uppercaseLetter, digit, length]} type={"password"} title="Пароль" />
+			{/*<Field component={Input} name={"password"} type={"password"} title="Пароль" />*/}
 			<div>
 				<button type={"submit"}>Войти</button>
 			</div>
