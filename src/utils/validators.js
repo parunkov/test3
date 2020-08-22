@@ -4,11 +4,11 @@ export const required = value => {
 }
 export const lowercaseLetter = value => {
 	if (value.match(/[a-z]/)) return undefined;
-	return 'Должна быть хотя бы одна маленькая англиская буква';
+	return 'Должна быть хотя бы одна маленькая английская буква';
 }
 export const uppercaseLetter = value => {
 	if (value.match(/[A-Z]/)) return undefined;
-	return 'Должна быть хотя бы одна большая англиская буква';
+	return 'Должна быть хотя бы одна большая английская буква';
 }
 export const digit = value => {
 	if (value.match(/\d/)) return undefined;
