@@ -23,11 +23,9 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, reversed, sortedById, s
 
 	const BuyersForm = ({handleSubmit, error}) => {
 		return (
-			<form onSubmit={handleSubmit} className="">
+			<form onSubmit={handleSubmit} className="Buyers__form">
 				<Field component={Input} name={"name"} />
-				<div className="">
-					<button type={"submit"}>Найти</button>
-				</div>
+				<button className="Buyers__searchButton" type={"submit"}>Найти</button>
 			</form>
 		)
 	}
@@ -54,9 +52,9 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, reversed, sortedById, s
 
 	const Button = ({sort, sorted}) => {
 		if (sorted && !reversed) {
-			return <button type="button" onClick={() => reverseBuyers(true)}>По убыванию</button>
+			return <button className="Buyers__buttonDown" type="button" onClick={() => reverseBuyers(true)}>По убыванию</button>
 		} else {
-			return <button type="button" onClick={sort}>По возрастанию</button>
+			return <button className="Buyers__buttonUp" type="button" onClick={sort}>По возрастанию</button>
 		}
 	}
 
@@ -83,7 +81,7 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, reversed, sortedById, s
 								<Button sort={sortById} sorted={sortedById} />
 							</td>
 							<td className="Buyers__filter">
-								{filtered ? <button type="button" onClick={clearFilter}>Сбросить фильтр</button> : <BuyersReduxForm onSubmit={onSubmit} />}
+								{filtered ? <button className="Buyers__buttonClear" type="button" onClick={clearFilter}>Сбросить фильтр</button> : <BuyersReduxForm onSubmit={onSubmit} />}
 							</td>
 							<td>
 								<Button sort={sortByCheck} sorted={sortedByCheck} />
@@ -98,13 +96,13 @@ const Buyers = ({filteredBuyers, sortedBuyers, filtered, reversed, sortedById, s
 						<BuyersTable filteredBuyers={filteredBuyers} />
 					</tbody>
 				</table>
-				{showedBuyersValue === 5 && <div className="">
+				{showedBuyersValue === 5 && <div className="Buyers__pagination">
 					<span>Страница </span>
 					<span className={"Buyers__paginationItem" + (page === 1 ? " Buyers__paginationItem_active" : "")} onClick={() => setPage(1)}>1 </span>
 					<span className={"Buyers__paginationItem" + (page === 2 ? " Buyers__paginationItem_active" : "")} onClick={() => setPage(2)}>2 </span>
 					<span className={"Buyers__paginationItem" + (page === 3 ? " Buyers__paginationItem_active" : "")} onClick={() => setPage(3)}>3 </span>
 				</div>}
-				<div className="">
+				<div className="Buyers__itemsValueSelector">
 					<span>Показывать </span> 
 					<button onClick={() => setShowedBuyersValue(5)} disabled={showedBuyersValue === 5}>5</button>
 					<button onClick={() => setShowedBuyersValue(10)} disabled={showedBuyersValue === 10}>10</button>

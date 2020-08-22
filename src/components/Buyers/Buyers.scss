@@ -1,9 +1,53 @@
 .Buyers {
 	&__table {
 		border-collapse: collapse;
+		table-layout: fixed;
+		width: 100%;
+		margin-bottom: 20px;
 		th, td {
 			border: 1px solid #114e40;
+			@media (max-width: 550px) {
+				padding: 2px;
+				padding-top: 5px;
+				padding-bottom: 5px;
+				word-wrap:break-word;
+			}
 		}
+		th {
+			@media (max-width: 550px) {
+				word-wrap:break-word;
+			}
+		}
+	}
+	&__form div {
+		display: inline-block;
+		width: 80px;
+		margin-right: 15px;
+		@media (max-width: 550px) {
+			width: 50px;
+		}
+	}
+	&__searchButton {
+		display: inline-block;
+	}
+	&__buttonUp, &__buttonDown {
+		padding: 0;
+		font-size: 0;
+		width: 0;
+		height: 0;
+		background: transparent;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+	} 
+	&__buttonUp {
+		border-top: 20px solid #114e40;
+		margin-top: 15px;
+	}
+	&__buttonDown {
+		border-bottom: 20px solid #114e40;
+	}
+	&__pagination {
+		margin-bottom: 20px;
 	}
 	&__paginationItem {
 		cursor: pointer;
@@ -14,8 +58,25 @@
 	}
 	&__filter input {
 		width: 80px;
+		display: inline-block;
+		padding: 4px;
+		margin-bottom: 5px;
+		@media (max-width: 550px) {
+			width: 45px;
+		}
 	}
 	&__buttons td {
 		text-align: center;
+	}
+	&__buttonClear {
+		@media (max-width: 400px) {
+			word-break: break-all;
+		}
+	}
+	&__itemsValueSelector {
+		margin-bottom: 20px;
+		button {
+			margin-right: 5px;
+		}
 	}
 }
